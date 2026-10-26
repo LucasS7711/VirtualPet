@@ -9,50 +9,66 @@ public class VirtualPet {
       int happiness = 5;
       int hunger = 5;
       int energy = 5;
-      
       int choice = 0;
-      
+
       System.out.println("Welcome to Virtual Pet Simulator!");
       System.out.println("Your pet's name is Mr. Pickles.");
-
-      // TODO 1:
-      // Create a while loop that continues while:
-      // happiness < 15
-      // hunger < 10
-      // energy > 0
-      // choice != 5
-
-         // TODO 2:
-         // Display happiness, hunger, and energy.
-         
+      while (happiness < 15 && hunger < 10 && energy > 0 && choice != 5) {
+         System.out.println("-------------------------\nHappiness: " + happiness + "\nHunger: " + hunger + "\nEnergy: " + energy + "\n-------------------------");
          System.out.println("What would you like to do?");
          System.out.println("1. Feed");
          System.out.println("2. Play");
          System.out.println("3. Sleep");
          System.out.println("4. Bath");
-         System.out.println("5. Quit");
-         
+         System.out.println("5. Quit");     
          choice = input.nextInt();
+         if (choice == 1) {
+            happiness ++;
+            hunger -= 3;
+            System.out.println("Tasty!");
+         } else {
+            if (choice == 2) {
+               happiness += 3;
+               hunger += 2;
+               energy -=2;
+               System.out.println("Fun!");
+            } else {
+               if (choice == 3) {
+                  happiness --;
+                  hunger ++;
+                  energy += 3;
+                  System.out.println("Zzzzzz...");
+               } else {
+                  if (choice == 4) {
+                     happiness += 2;
+                     hunger ++;
+                     energy --;
+                     System.out.println("All clean!");
+                  } else {
+                     if (choice == 5) {
+                     } else {
+                        System.out.println(choice + " is not a valid option. Try again!");
+                     }
+                  }
+               }
+            }
+         }
          
-         // TODO 3:
-         // Create an if / else if / else statement
-         // to handle the player's choice.
-         //
-         // Update the three statistics according
-         // to the table in the instructions.
-         //
-         // Print a funny message for each action.
-
-
-      // TODO 4:
-      // After the loop, determine WHY the game ended.
-      //
-      // Did the pet become happy enough?
-      // Did it get too hungry?
-      // Did it run out of energy?
-      // Did the player quit?
-      //
-      // Print the appropriate ending message.
+      }
+      System.out.println("-------------------------\nHappiness: " + happiness + "\nHunger: " + hunger + "\nEnergy: " + energy + "\n-------------------------");
+      if (hunger >= 10) {
+         System.out.println("Pet starved. :(");
+      } else {
+         if (energy <= 0) {
+            System.out.println("Pet ran out of battery...");
+         } else {
+            if (happiness >= 15) {
+               System.out.println("Success! Pickles is happy :)");
+            } else {
+               System.out.println("Quitting already?");
+            }
+         }
+      }
       input.close();
    }
 }
